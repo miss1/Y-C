@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+
+  <text>{{text}}</text>
+
+</view>
