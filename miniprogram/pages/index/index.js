@@ -3,44 +3,50 @@ const app = getApp()
 
 Page({
   data: {
-    text: 'Y&C',
-    avatarUrl: '',
-    userInfo: ''
+    inputValue: ''
   },
   onLoad: function () {
+    //
+    app.plog('1', SKEY);
+    wx.getStorage({
+      key: 'key',
+      success(res) {
+        console.log(res.data)
+      }
+    })
+
+    //获取openid
     wx.cloud.callFunction({
       name: 'login',
       complete: res => {
         app.globalData.openid = res.result.openid;
-        console.log(app.globalData.openid);
-      }
-    })
-
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              this.setData({
-                avatarUrl: res.userInfo.avatarUrl,
-                userInfo: res.userInfo
-              })
-            }
-          })
-        }
+        app.plog('info', app.globalData.openid);
       }
     })
   },
 
+  //获取用户信息
   onGetUserInfo: function (e) {
-    console.log(e.detail.userInfo);
+    app.plog('info', e.detail.userInfo.avatarUrl);
     if (e.detail.userInfo) {
-      this.setData({
-        avatarUrl: e.detail.userInfo.avatarUrl,
-        userInfo: e.detail.userInfo
-      })
+      app.globalData.avatarUrl = e.detail.userInfo.avatarUrl;
+      app.globalData.userInfo = e.detail.userInfo;
+
+      wx.setStorage({ key: "key", data: this.data.inputValue == '' ? 'visitor' : this.data.inputValue});
+      if(this.data.inputValue === 'lovecici'){   //验证登陆的key值
+        app.globalData.isOwner = true;
+      }else{
+        app.globalData.isOwner = false;
+      }
+      //跳转到下一页
+
     }
+  },
+
+  //key输入框的值
+  bindKeyInput: function (e) {
+    this.setData({
+      inputValue: e.detail.value
+    })
   },
 })

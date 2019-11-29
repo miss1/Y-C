@@ -1,14 +1,17 @@
 <!--index.wxml-->
-<view class="container">
-
-  <text>{{text}}</text>
-
-  <button 
-      open-type="getUserInfo" 
-      bindgetuserinfo="onGetUserInfo"
-      size="default"
-    >获取用户信息</button>
-
-  <text>{{userInfo.nickName}}</text>
+<view class="container" style="background: url('../../images/bg_index.jpg') no-repeat;background-size: cover">
+  <view class="page-login">
+    <view>Y&C</view>
+    <view>LOVE STORY</view>
+    <view>
+      <text>lover key:</text>
+      <input class="weui-input" password="true" bindinput="bindKeyInput"/>
+    </view>
+    <button 
+        open-type="getUserInfo" 
+        bindgetuserinfo="onGetUserInfo"
+        size="default"
+      >获取用户信息</button>
+  </view>
 
 </view>
