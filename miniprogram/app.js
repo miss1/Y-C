@@ -1,5 +1,4 @@
 //app.js
-const SKEY = 'key';
 App({
   onLaunch: function () {
     
@@ -17,18 +16,5 @@ App({
     }
 
     this.globalData = {}
-  },
-  plog: function(type, msg){
-    if(type === 'error'){
-      console.error(msg);
-    }
-
-    else if(type === 'log'){
-      console.log(msg);
-    }
-
-    else{
-      console.info(msg);
-    }
   }
 })

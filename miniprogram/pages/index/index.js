@@ -1,46 +1,71 @@
 //index.js
-const app = getApp()
+const app = getApp();
+const db = wx.cloud.database();
 
 Page({
   data: {
     inputValue: ''
   },
   onLoad: function () {
-    //
-    app.plog('1', SKEY);
-    wx.getStorage({
-      key: 'key',
-      success(res) {
-        console.log(res.data)
-      }
-    })
+    //获取key值
+    // wx.getStorage({
+    //   key: 'key',
+    //   success(res) {
+    //     console.log(res.data);
+    //     app.globalData.key = res.data;
+    //   }
+    // })
 
     //获取openid
     wx.cloud.callFunction({
       name: 'login',
       complete: res => {
         app.globalData.openid = res.result.openid;
-        app.plog('info', app.globalData.openid);
       }
     })
   },
 
   //获取用户信息
   onGetUserInfo: function (e) {
-    app.plog('info', e.detail.userInfo.avatarUrl);
     if (e.detail.userInfo) {
       app.globalData.avatarUrl = e.detail.userInfo.avatarUrl;
-      app.globalData.userInfo = e.detail.userInfo;
+      app.globalData.nickName = e.detail.userInfo.nickName;
 
-      wx.setStorage({ key: "key", data: this.data.inputValue == '' ? 'visitor' : this.data.inputValue});
+      console.log(e.detail.userInfo);
+
       if(this.data.inputValue === 'lovecici'){   //验证登陆的key值
-        app.globalData.isOwner = true;
+        wx.setStorage({ key: "key", data: this.data.inputValue });
+        app.globalData.key = this.data.inputValue;
+        this.register();
       }else{
-        app.globalData.isOwner = false;
+        wx.showToast({
+          title: '请输入正确的key值',
+          icon: 'none'
+        })
       }
-      //跳转到下一页
-
     }
+  },
+
+  //注册用户信息
+  register: function(){
+    db.collection('memory').add({
+      data: {
+        nickName: app.globalData.nickName,
+        avatar: app.globalData.avatarUrl,
+        key: app.globalData.key
+      },
+      success: res => {
+        //跳转到下一页
+        wx.navigateTo({ url: '../home/index' });
+      },
+      fail: err => {
+        console.log(err);
+        wx.showToast({
+          title: '登录账号失败',
+          icon: 'none'
+        })
+      }
+    });
   },
 
   //key输入框的值
