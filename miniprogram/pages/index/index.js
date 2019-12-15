@@ -48,7 +48,7 @@ Page({
 
   //注册用户信息
   register: function(){
-    db.collection('memory').add({
+    db.collection('user').doc(app.globalData.openid).set({
       data: {
         nickName: app.globalData.nickName,
         avatar: app.globalData.avatarUrl,
