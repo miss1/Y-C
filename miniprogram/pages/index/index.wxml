@@ -1,16 +1,17 @@
 <!--index.wxml-->
 <view class="container">
   <view class="page-login" style="background: url('../../images/bg.jpg') no-repeat;background-size: cover">
-    <view class="title"></view>
-    <view>
-      <text>key:</text>
-      <input class="weui-input" password="true" bindinput="bindKeyInput"/>
+    <view class="title">LOVE STORY</view>
+    <view class="form">
+      <view class="form-content">
+        <text>key:</text>
+        <input class="weui-input" password="true" bindinput="bindKeyInput" maxlength="20" placeholder="请输入密钥"/>
+        <button style="background: url('../../images/icon_enter.png') no-repeat;background-size: cover;"
+            size="mini"
+            open-type="getUserInfo" 
+            bindgetuserinfo="onGetUserInfo"></button>
+      </view>
     </view>
-    <button style="background: url('../../images/icon_enter.png') no-repeat;background-size: cover"
-        open-type="getUserInfo" 
-        bindgetuserinfo="onGetUserInfo"
-        size="default">
-        获取用户信息</button>
   </view>
 
 </view>
