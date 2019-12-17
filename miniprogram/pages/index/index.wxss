@@ -31,8 +31,11 @@ image{
   border-radius: 20rpx;
 }
 .form-content text{
-  width: 80rpx;
+  width: 100rpx;
   height: 80rpx;
+  line-height: 80rpx;
+  color: black;
+  text-align: center;
 }
 .form-content button{
   width:80rpx;
