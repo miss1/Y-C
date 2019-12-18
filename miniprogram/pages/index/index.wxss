@@ -1,5 +1,5 @@
 /**index.wxss**/
-.page-login{
+.page-login,.page-inside{
   width: 100%;
   height: 100%;
   position: relative;
@@ -8,7 +8,7 @@
   font-size: 60rpx;
   color: white;
   text-align: center;
-  padding-top: 50rpx;
+  padding-top: 130rpx;
 }
 image{
   width: 30rpx;
@@ -42,4 +42,9 @@ image{
   height:80rpx;
   margin: 0;
   padding: 0;
+}
+.page-inside text{
+  position: absolute;
+  left: 80rpx;
+  top: 60%;
 }

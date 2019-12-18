@@ -1,2 +1,4 @@
 <!--miniprogram/pages/home/index.wxml-->
-<text>miniprogram/pages/home/index.wxml</text>
+<view class="container">
+lalla
+</view>

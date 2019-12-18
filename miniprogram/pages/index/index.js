@@ -4,17 +4,29 @@ const db = wx.cloud.database();
 
 Page({
   data: {
-    inputValue: ''
+    inputValue: '',
+    isLogin: false,
+    msg: '还没留言?\n快去树洞给ta写下想说的话吧'
   },
   onLoad: function () {
     //获取key值
-    // wx.getStorage({
-    //   key: 'key',
-    //   success(res) {
-    //     console.log(res.data);
-    //     app.globalData.key = res.data;
-    //   }
-    // })
+    wx.getStorage({
+      key: 'loginInfo',
+      success: res => {
+        app.globalData.key = res.data.key;
+        app.globalData.avatarUrl = res.data.avatarUrl;
+        app.globalData.nickName = res.data.nickName;
+        this.setData({
+          isLogin: true
+        });
+        this.loadMsg();
+      },
+      fail: err => {
+        this.setData({
+          isLogin: false
+        })
+      }
+    })
 
     //获取openid
     wx.cloud.callFunction({
@@ -28,13 +40,9 @@ Page({
   //获取用户信息
   onGetUserInfo: function (e) {
     if (e.detail.userInfo) {
-      app.globalData.avatarUrl = e.detail.userInfo.avatarUrl;
-      app.globalData.nickName = e.detail.userInfo.nickName;
-
-      console.log(e.detail.userInfo);
-
       if(this.data.inputValue === 'lovecici'){   //验证登陆的key值
-        wx.setStorage({ key: "key", data: this.data.inputValue });
+        app.globalData.avatarUrl = e.detail.userInfo.avatarUrl;
+        app.globalData.nickName = e.detail.userInfo.nickName;
         app.globalData.key = this.data.inputValue;
         this.register();
       }else{
@@ -55,6 +63,12 @@ Page({
         key: app.globalData.key
       },
       success: res => {
+        let loinfo = {
+          key: app.globalData.key,
+          avatarUrl: app.globalData.avatarUrl,
+          nickName: app.globalData.nickName
+        };
+        wx.setStorage({ key: "loginInfo", data: loinfo });
         //跳转到下一页
         wx.navigateTo({ url: '../home/index' });
       },
@@ -74,4 +88,16 @@ Page({
       inputValue: e.detail.value
     })
   },
+
+  //获取第一条留言信息
+  loadMsg: function(){
+    // this.setData({
+    //   msg: ''
+    // })
+
+    //两秒后跳转到下一页
+    setTimeout(function(){
+      wx.navigateTo({ url: '../home/index' });
+    },2000);
+  }
 })
