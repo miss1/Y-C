@@ -6,7 +6,7 @@ Page({
   data: {
     inputValue: '',
     isLogin: false,
-    msg: '还没留言?\n快去树洞给ta写下想说的话吧'
+    msg: '还没有记录?\n快去添加你的另一半吧'
   },
   onLoad: function () {
     //获取key值
@@ -89,7 +89,7 @@ Page({
     })
   },
 
-  //获取第一条留言信息
+  //获取记录的天数
   loadMsg: function(){
     // this.setData({
     //   msg: ''

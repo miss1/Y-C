@@ -1,12 +1,13 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="page-login" style="background: url('/images/bg.jpg') no-repeat;background-size: cover" wx:if="{{!isLogin}}">
+  <image class="page-bg" src="/images/bg.jpg"></image>
+  <view class="page-login" wx:if="{{!isLogin}}">
     <view class="title">LOVE STORY</view>
     <view class="form">
       <view class="form-content">
         <text>key:</text>
         <input class="weui-input" password="true" bindinput="bindKeyInput" maxlength="20" placeholder="请输入密钥"/>
-        <button style="background: url('/images/icon_enter.png') no-repeat;background-size: cover;"
+        <button class="iconfont iconenter"
             size="mini"
             open-type="getUserInfo" 
             bindgetuserinfo="onGetUserInfo"></button>

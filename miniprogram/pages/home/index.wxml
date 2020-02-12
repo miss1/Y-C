@@ -1,4 +1,25 @@
 <!--miniprogram/pages/home/index.wxml-->
 <view class="container">
-lalla
+  <swiper class="block-swiper" indicator-dots="true"autoplay="true">
+    <block wx:for="{{swiperImg}}" wx:key="*this">
+      <swiper-item>
+        <image class="swiper-img" src="{{item}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <navigator class="items item-all eating" url="../eating/index">
+    <text>what we eat</text>
+    <image src="../../images/pig.png"></image>
+  </navigator>
+  <view class="item-all item-block">
+    <navigator class="items item-half" url="../plan/index">
+      <image src="../../images/sheep_right.png"></image>
+      <text>plan</text>
+    </navigator>
+    <navigator class="items item-half" url="../story/index">
+      <image src="../../images/sheep_left.png"></image>
+      <text>love story</text>
+    </navigator>
+  </view>
+  <view class="footer"><specialday /></view>
 </view>

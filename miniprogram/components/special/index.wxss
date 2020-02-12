@@ -1,0 +1,36 @@
+/* components/special/index.wxss */
+@import '../../style/iconfont.wxss';
+@import 'animate.wxss';
+.warper{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f0d8d4
+}
+.left{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 12rpx;
+}
+.left .avatar{
+  width: 80rpx;
+  height: 80rpx;
+  border: 1px solid salmon;
+  border-radius: 50%;
+}
+.left .nick{
+  font-size: 30rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  max-width: 120rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.right{
+  font-size: 32rpx;
+  margin-right: 12rpx;
+}

@@ -10,9 +10,13 @@
   text-align: center;
   padding-top: 130rpx;
 }
-image{
-  width: 30rpx;
-  height: 30rpx;
+.page-bg{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
 }
 .form{
   position: absolute;
@@ -47,4 +51,6 @@ image{
   position: absolute;
   left: 80rpx;
   top: 60%;
+  font-size: 34rpx;
+  color: white;
 }

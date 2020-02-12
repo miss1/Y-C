@@ -1,0 +1,4 @@
+<!--miniprogram/pages/annual/index.wxml-->
+<view class="container">
+  <specialday />
+</view>

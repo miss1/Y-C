@@ -1,0 +1,4 @@
+<!--miniprogram/pages/story/index.wxml-->
+<view class="container">
+  <specialday />
+</view>
