@@ -1,4 +1,4 @@
-// miniprogram/pages/eating/index.js
+// miniprogram/pages/affairs/index.js
 Page({
 
   /**

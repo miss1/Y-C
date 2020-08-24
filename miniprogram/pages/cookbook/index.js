@@ -1,4 +1,4 @@
-// miniprogram/pages/story/index.js
+// miniprogram/pages/cookbook/index.js
 Page({
 
   /**

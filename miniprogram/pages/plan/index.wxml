@@ -1,4 +1,0 @@
-<!--miniprogram/pages/plan/index.wxml-->
-<view class="container">
-  <specialday />
-</view>

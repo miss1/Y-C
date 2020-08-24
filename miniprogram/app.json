@@ -2,11 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/home/index",
-    "components/special/index",
-    "pages/eating/index",
-    "pages/plan/index",
-    "pages/story/index",
-    "pages/annual/index"
+    "pages/cookbook/index",
+    "pages/affairs/index",
+    "pages/anniversary/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -16,5 +14,33 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "style": "v2",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "home",
+        "iconPath": "",
+        "selectedIconPath": ""
+      },
+      {
+        "pagePath": "pages/cookbook/index",
+        "text": "eat",
+        "iconPath": "",
+        "selectedIconPath": ""
+      },
+      {
+        "pagePath": "pages/affairs/index",
+        "text": "待办",
+        "iconPath": "",
+        "selectedIconPath": ""
+      },
+      {
+        "pagePath": "pages/anniversary/index",
+        "text": "纪念",
+        "iconPath": "",
+        "selectedIconPath": ""
+      }
+    ]
+  }
 }

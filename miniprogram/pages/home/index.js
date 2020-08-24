@@ -4,7 +4,7 @@ const db = wx.cloud.database();
 
 Page({
   data: {
-    swiperImg: ['/images/test.jpg', '/images/test.jpg', '/images/test.jpg']
+    
   },
 
   onLoad: function (options) {

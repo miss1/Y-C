@@ -1,4 +1,4 @@
-// miniprogram/pages/plan/index.js
+// miniprogram/pages/anniversary/index.js
 Page({
 
   /**

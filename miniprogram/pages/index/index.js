@@ -70,7 +70,9 @@ Page({
         };
         wx.setStorage({ key: "loginInfo", data: loinfo });
         //跳转到下一页
-        wx.navigateTo({ url: '../home/index' });
+        wx.redirectTo({
+          url: '../home/index',
+        });
       },
       fail: err => {
         console.log(err);
@@ -97,7 +99,7 @@ Page({
 
     //两秒后跳转到下一页
     setTimeout(function(){
-      wx.navigateTo({ url: '../home/index' });
+      wx.switchTab({ url: '../home/index' });
     },2000);
   }
 })

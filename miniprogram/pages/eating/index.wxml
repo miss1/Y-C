@@ -1,4 +1,0 @@
-<!--miniprogram/pages/eating/index.wxml-->
-<view class="container">
-  <specialday />
-</view>
